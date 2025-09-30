@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brianna Hollister | Finance & Data Analytics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info a:hover {
+            color: #667eea;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .education-header h3 {
+            color: #667eea;
+            font-size: 1.3em;
+        }
+
+        .date {
+            color: #888;
+            font-style: italic;
+        }
+
+        .degree {
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .details {
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .experience-header h3 {
+            color: #2c3e50;
+            font-size: 1.2em;
+        }
+
+        .company {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .skill-category p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .coursework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .course-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .course-category h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .course-category p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .experience-header, .education-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Brianna Hollister</h1>
+            <p class="tagline">Finance Major | Data Analytics Minor | Seeking Summer 2026 Internship</p>
+            <div class="contact-info">
+                <a href="mailto:briannahollisterr@gmail.com">✉ briannahollisterr@gmail.com</a>
+                <a href="tel:518-610-3620">📞 518-610-3620</a>
+                <span>📍 Wells, NY</span>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>About Me</h2>
+            <p>Finance major with a minor in Data Analytics seeking a Summer 2026 internship to apply skills in financial modeling, data analysis, and credit risk assessment to support analytical decision-making in corporate finance or banking.</p>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <div class="education-header">
+                <div>
+                    <h3>Stonehill College</h3>
+                    <p class="details">Easton, MA</p>
+                </div>
+                <p class="date">Anticipated Graduation: May 2027</p>
+            </div>
+            <p class="degree">Bachelor of Science in Business Administration</p>
+            <p class="details"><strong>Major:</strong> Finance | <strong>Minor:</strong> Data Analytics</p>
+            <p class="details"><strong>Major GPA:</strong> 3.70/4.00</p>
+            <p class="details"><strong>Honors & Awards:</strong> Presidential Merit Scholarship, Dean's List</p>
+        </div>
+
+        <div class="section">
+            <h2>Relevant Coursework</h2>
+            <div class="coursework-grid">
+                <div class="course-category">
+                    <h3>Finance & Accounting</h3>
+                    <p>Advanced Corporate Finance & Modeling, Investments, Corporate Financial Reporting, Financial Accounting</p>
+                </div>
+                <div class="course-category">
+                    <h3>Data Analytics</h3>
+                    <p>R for Business Analytics, Introduction to Data Analytics, Computer Science</p>
+                </div>
+                <div class="course-category">
+                    <h3>Business & Economics</h3>
+                    <p>International Business, Legal Environment of Business, Intermediate Macroeconomics</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Treasurer (2025) / Member</h3>
+                        <p class="company">Women in Finance | Stonehill College</p>
+                    </div>
+                    <p class="date">2023 - Present</p>
+                </div>
+                <ul>
+                    <li>Manage and track a given budget to ensure proper and efficient allocation of funds</li>
+                    <li>Collaborate with other board leaders to create value and ensure participation by all members</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Mentor / Trainer</h3>
+                        <p class="company">Department of Environmental Conservation | New York State</p>
+                    </div>
+                    <p class="date">Summer 2025</p>
+                </div>
+                <ul>
+                    <li>Train new staff members on protocols, including handling money, guest check-ins, and ensure a friendly, professional experience for all guests</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Customer Service Representative</h3>
+                        <p class="company">NYS Department of Environmental Conservation | Northampton Beach Campground</p>
+                    </div>
+                    <p class="date">May 2024 - Present</p>
+                </div>
+                <ul>
+                    <li>Welcome campers and efficiently manage check-ins, creating a positive atmosphere and ensuring a seamless start to their stay</li>
+                    <li>Process payments for day permits and campsite bookings, handling both cash and card transactions to ensure smooth service</li>
+                    <li>Direct guests to their sites, provide campsite information, and assist with questions to enhance their camping experience</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Waitress and Ice Cream Server</h3>
+                        <p class="company">Ice Cream Tree | Northville, NY</p>
+                    </div>
+                    <p class="date">Summers 2022 - 2023</p>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3>Member</h3>
+                        <p class="company">FinTech Club | Stonehill College</p>
+                    </div>
+                    <p class="date">2023 - Present</p>
+                </div>
+                <ul>
+                    <li>Engage in discussions and activities with business leaders and club members on strategies for advancing in the business world</li>
+                    <li>Acquire valuable business and interpersonal skills from guest speakers who share insights about their careers and their industries</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Skills & Certifications</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <p>Microsoft Office Suite (Word, Excel, PowerPoint), Java, SAS Enterprise Miner, SAS Guide, R for Business Analytics</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <p>Spanish (Intermediate)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Certifications</h3>
+                    <p>Bloomberg Market Concepts, NYS Background Security Clearance</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Activities</h3>
+                    <p>Club Soccer - Stonehill College (September 2025 - Present)</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Brianna Hollister. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
