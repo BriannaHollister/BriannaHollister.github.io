@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #8ba888 0%, #6b9b6d 100%);
             min-height: 100vh;
         }
 
@@ -27,13 +27,24 @@
 
         header {
             background: white;
-            padding: 60px 40px;
+            padding: 40px 40px 60px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             text-align: center;
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            display: block;
+            border: 5px solid #6b9b6d;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         header::before {
@@ -43,7 +54,7 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #8ba888, #6b9b6d);
         }
 
         h1 {
@@ -54,7 +65,7 @@
 
         .tagline {
             font-size: 1.2em;
-            color: #667eea;
+            color: #6b9b6d;
             margin-bottom: 20px;
             font-weight: 500;
         }
@@ -77,15 +88,78 @@
         }
 
         .contact-info a:hover {
+            color: #6b9b6d;
+        }
+
+        .tabs {
+            background: white;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .tab-buttons {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 20px 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .tab-button:hover {
+            background: #e9ecef;
             color: #667eea;
         }
 
-        .section {
+        .tab-button.active {
+            color: #667eea;
             background: white;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #667eea;
+        }
+
+        .tab-content {
+            display: none;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            background: white;
+            border-radius: 0 0 15px 15px;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h2 {
@@ -213,6 +287,12 @@
             line-height: 1.8;
         }
 
+        .about-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
         footer {
             text-align: center;
             color: white;
@@ -225,8 +305,13 @@
                 font-size: 2em;
             }
             
-            .section {
+            .tab-content {
                 padding: 25px;
+            }
+
+            .tab-button {
+                padding: 15px 20px;
+                font-size: 0.9em;
             }
             
             .experience-header, .education-header {
@@ -238,6 +323,7 @@
 <body>
     <div class="container">
         <header>
+            <img src="https://i.imgur.com/placeholder.jpg" alt="Brianna Hollister" class="profile-photo">
             <h1>Brianna Hollister</h1>
             <p class="tagline">Finance Major | Data Analytics Minor | Seeking Summer 2026 Internship</p>
             <div class="contact-info">
@@ -247,132 +333,142 @@
             </div>
         </header>
 
-        <div class="section">
-            <h2>About Me</h2>
-            <p>Finance major with a minor in Data Analytics seeking a Summer 2026 internship to apply skills in financial modeling, data analysis, and credit risk assessment to support analytical decision-making in corporate finance or banking.</p>
-        </div>
-
-        <div class="section">
-            <h2>Education</h2>
-            <div class="education-header">
-                <div>
-                    <h3>Stonehill College</h3>
-                    <p class="details">Easton, MA</p>
-                </div>
-                <p class="date">Anticipated Graduation: May 2027</p>
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="openTab(event, 'about')">About</button>
+                <button class="tab-button" onclick="openTab(event, 'education')">Education</button>
+                <button class="tab-button" onclick="openTab(event, 'experience')">Experience</button>
+                <button class="tab-button" onclick="openTab(event, 'coursework')">Coursework</button>
+                <button class="tab-button" onclick="openTab(event, 'skills')">Skills</button>
             </div>
-            <p class="degree">Bachelor of Science in Business Administration</p>
-            <p class="details"><strong>Major:</strong> Finance | <strong>Minor:</strong> Data Analytics</p>
-            <p class="details"><strong>Major GPA:</strong> 3.70/4.00</p>
-            <p class="details"><strong>Honors & Awards:</strong> Presidential Merit Scholarship, Dean's List</p>
-        </div>
 
-        <div class="section">
-            <h2>Relevant Coursework</h2>
-            <div class="coursework-grid">
-                <div class="course-category">
-                    <h3>Finance & Accounting</h3>
-                    <p>Advanced Corporate Finance & Modeling, Investments, Corporate Financial Reporting, Financial Accounting</p>
-                </div>
-                <div class="course-category">
-                    <h3>Data Analytics</h3>
-                    <p>R for Business Analytics, Introduction to Data Analytics, Computer Science</p>
-                </div>
-                <div class="course-category">
-                    <h3>Business & Economics</h3>
-                    <p>International Business, Legal Environment of Business, Intermediate Macroeconomics</p>
-                </div>
+            <div id="about" class="tab-content active">
+                <h2>About Me</h2>
+                <p class="about-text">Finance major with a minor in Data Analytics seeking a Summer 2026 internship to apply skills in financial modeling, data analysis, and credit risk assessment to support analytical decision-making in corporate finance or banking.</p>
             </div>
-        </div>
 
-        <div class="section">
-            <h2>Experience</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
+            <div id="education" class="tab-content">
+                <h2>Education</h2>
+                <div class="education-header">
                     <div>
-                        <h3>Treasurer (2025) / Member</h3>
-                        <p class="company">Women in Finance | Stonehill College</p>
+                        <h3>Stonehill College</h3>
+                        <p class="details">Easton, MA</p>
                     </div>
-                    <p class="date">2023 - Present</p>
+                    <p class="date">Anticipated Graduation: May 2027</p>
                 </div>
-                <ul>
-                    <li>Manage and track a given budget to ensure proper and efficient allocation of funds</li>
-                    <li>Collaborate with other board leaders to create value and ensure participation by all members</li>
-                </ul>
+                <p class="degree">Bachelor of Science in Business Administration</p>
+                <p class="details"><strong>Major:</strong> Finance | <strong>Minor:</strong> Data Analytics</p>
+                <p class="details"><strong>Major GPA:</strong> 3.70/4.00</p>
+                <p class="details"><strong>Honors & Awards:</strong> Presidential Merit Scholarship, Dean's List</p>
             </div>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3>Mentor / Trainer</h3>
-                        <p class="company">Department of Environmental Conservation | New York State</p>
+            <div id="experience" class="tab-content">
+                <h2>Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Treasurer (2025) / Member</h3>
+                            <p class="company">Women in Finance | Stonehill College</p>
+                        </div>
+                        <p class="date">2023 - Present</p>
                     </div>
-                    <p class="date">Summer 2025</p>
+                    <ul>
+                        <li>Manage and track a given budget to ensure proper and efficient allocation of funds</li>
+                        <li>Collaborate with other board leaders to create value and ensure participation by all members</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>Train new staff members on protocols, including handling money, guest check-ins, and ensure a friendly, professional experience for all guests</li>
-                </ul>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Mentor / Trainer</h3>
+                            <p class="company">Department of Environmental Conservation | New York State</p>
+                        </div>
+                        <p class="date">Summer 2025</p>
+                    </div>
+                    <ul>
+                        <li>Train new staff members on protocols, including handling money, guest check-ins, and ensure a friendly, professional experience for all guests</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Customer Service Representative</h3>
+                            <p class="company">NYS Department of Environmental Conservation | Northampton Beach Campground</p>
+                        </div>
+                        <p class="date">May 2024 - Present</p>
+                    </div>
+                    <ul>
+                        <li>Welcome campers and efficiently manage check-ins, creating a positive atmosphere and ensuring a seamless start to their stay</li>
+                        <li>Process payments for day permits and campsite bookings, handling both cash and card transactions to ensure smooth service</li>
+                        <li>Direct guests to their sites, provide campsite information, and assist with questions to enhance their camping experience</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Waitress and Ice Cream Server</h3>
+                            <p class="company">Ice Cream Tree | Northville, NY</p>
+                        </div>
+                        <p class="date">Summers 2022 - 2023</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Member</h3>
+                            <p class="company">FinTech Club | Stonehill College</p>
+                        </div>
+                        <p class="date">2023 - Present</p>
+                    </div>
+                    <ul>
+                        <li>Engage in discussions and activities with business leaders and club members on strategies for advancing in the business world</li>
+                        <li>Acquire valuable business and interpersonal skills from guest speakers who share insights about their careers and their industries</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3>Customer Service Representative</h3>
-                        <p class="company">NYS Department of Environmental Conservation | Northampton Beach Campground</p>
+            <div id="coursework" class="tab-content">
+                <h2>Relevant Coursework</h2>
+                <div class="coursework-grid">
+                    <div class="course-category">
+                        <h3>Finance & Accounting</h3>
+                        <p>Advanced Corporate Finance & Modeling, Investments, Corporate Financial Reporting, Financial Accounting</p>
                     </div>
-                    <p class="date">May 2024 - Present</p>
-                </div>
-                <ul>
-                    <li>Welcome campers and efficiently manage check-ins, creating a positive atmosphere and ensuring a seamless start to their stay</li>
-                    <li>Process payments for day permits and campsite bookings, handling both cash and card transactions to ensure smooth service</li>
-                    <li>Direct guests to their sites, provide campsite information, and assist with questions to enhance their camping experience</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3>Waitress and Ice Cream Server</h3>
-                        <p class="company">Ice Cream Tree | Northville, NY</p>
+                    <div class="course-category">
+                        <h3>Data Analytics</h3>
+                        <p>R for Business Analytics, Introduction to Data Analytics, Computer Science</p>
                     </div>
-                    <p class="date">Summers 2022 - 2023</p>
+                    <div class="course-category">
+                        <h3>Business & Economics</h3>
+                        <p>International Business, Legal Environment of Business, Intermediate Macroeconomics</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <h3>Member</h3>
-                        <p class="company">FinTech Club | Stonehill College</p>
+            <div id="skills" class="tab-content">
+                <h2>Skills & Certifications</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Technical Skills</h3>
+                        <p>Microsoft Office Suite (Word, Excel, PowerPoint), Java, SAS Enterprise Miner, SAS Guide, R for Business Analytics</p>
                     </div>
-                    <p class="date">2023 - Present</p>
-                </div>
-                <ul>
-                    <li>Engage in discussions and activities with business leaders and club members on strategies for advancing in the business world</li>
-                    <li>Acquire valuable business and interpersonal skills from guest speakers who share insights about their careers and their industries</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Skills & Certifications</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Technical Skills</h3>
-                    <p>Microsoft Office Suite (Word, Excel, PowerPoint), Java, SAS Enterprise Miner, SAS Guide, R for Business Analytics</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <p>Spanish (Intermediate)</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Certifications</h3>
-                    <p>Bloomberg Market Concepts, NYS Background Security Clearance</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Activities</h3>
-                    <p>Club Soccer - Stonehill College (September 2025 - Present)</p>
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <p>Spanish (Intermediate)</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Certifications</h3>
+                        <p>Bloomberg Market Concepts, NYS Background Security Clearance</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Activities</h3>
+                        <p>Club Soccer - Stonehill College (September 2025 - Present)</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -381,5 +477,24 @@
             <p>&copy; 2025 Brianna Hollister. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabContent, tabButtons;
+            
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+            }
+            
+            tabButtons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 </html>
